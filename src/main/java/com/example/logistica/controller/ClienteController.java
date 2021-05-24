@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente adicionarCliente(@RequestBody Cliente clienteRecebido) {
+	public Cliente adicionarCliente(@Valid @RequestBody Cliente clienteRecebido) {
 		return repositorio.save(clienteRecebido);
 	}
 	
